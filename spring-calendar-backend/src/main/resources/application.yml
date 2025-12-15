@@ -4,7 +4,7 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:27017/calendarAppDB
+      uri: 몽고디비 url
 
 jwt:
   secret: 키
