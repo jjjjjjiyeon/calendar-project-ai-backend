@@ -8,4 +8,4 @@ spring:
 
 jwt:
   secret: 키
-  expiration: 86400000
+  expiration: 
