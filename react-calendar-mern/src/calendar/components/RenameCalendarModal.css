@@ -1,0 +1,113 @@
+/* === RenameCalendarModal 전용 (rcm- prefix) === */
+
+.rcm-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.45); /* 어두운 반투명(블러 없음) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 9999;
+  box-sizing: border-box;
+}
+
+.rcm-dialog {
+  width: 100%;
+  max-width: 520px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* 둥근 모서리 유지 */
+  max-height: 90vh;
+}
+
+.rcm-header {
+  padding: 18px 20px;
+  border-bottom: 1px solid #eee;
+}
+.rcm-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+/* 본문 */
+.rcm-body {
+  padding: 16px 20px 8px 20px;
+  overflow: auto;
+}
+
+.rcm-field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #333;
+}
+.rcm-input {
+  width: 100%;
+  border: 1px solid #e8e5eb;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 14px;
+  outline: none;
+  background: #fff;
+}
+.rcm-input:focus {
+  border-color: #e5c7fe;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+}
+
+/* 하단 버튼 영역 */
+.rcm-footer {
+  padding: 14px 20px;
+  border-top: 1px solid #eee;
+  background: #fafafa;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end; /* 버튼을 우측 정렬(요청했던 레이아웃) */
+}
+
+/* 버튼 공통 */
+.rcm-btn {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+}
+.rcm-btn.ghost {
+  background: #f6eeff;
+  color: #8638ca;
+}
+.rcm-btn.ghost:hover {
+  background: #e0e7ff;
+}
+.rcm-btn.primary {
+  background: #9a5bff;
+  color: #fff;
+}
+.rcm-btn.primary:hover {
+  background: #c548ff;
+}
+
+/* 접근성 & 상태 */
+.rcm-btn:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+.rcm-btn:focus-visible,
+.rcm-input:focus-visible {
+  outline: 2px solid #c7a7ff;
+  outline-offset: 2px;
+}
+
+/* 모바일 여백 */
+@media (max-width: 480px) {
+  .rcm-backdrop { padding: 16px; }
+  .rcm-dialog { border-radius: 14px; }
+}

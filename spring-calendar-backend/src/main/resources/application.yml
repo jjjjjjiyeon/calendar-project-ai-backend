@@ -1,0 +1,11 @@
+server:
+  port: 8080
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/calendarAppDB
+
+jwt:
+  secret: my-very-long-and-secure-jwt-secret-key-1234567890
+  expiration: 86400000

@@ -1,0 +1,195 @@
+.modal-fondo {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+}
+
+/* 모달 본체 */
+.modal {
+  background: #fff;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 600px;
+  font-family: "Noto Sans KR", sans-serif;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  overflow-y: auto;
+}
+
+.modal::-webkit-scrollbar { width: 10px; }
+.modal::-webkit-scrollbar-thumb { background: #bbb; border-radius: 16px; }
+.modal::-webkit-scrollbar-thumb:hover { background: #999; }
+
+.modal-form { flex: 1; overflow-y: auto; padding: 20px; }
+
+.modal-header { border-bottom: 1px solid #eee; background: #ffffff; }
+.modal-header h2 { margin: 0; font-size: 20px; font-weight: 700; }
+
+.modal-form label {
+  display: block;
+  margin: 14px 0 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.modal .form-control {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  background: #ffffff;
+  margin-bottom: 10px;
+}
+.modal .form-control:focus {
+  border-color: #673ab7;
+  background: #fff;
+  box-shadow: 0 0 0 2px rgba(103, 58, 183, 0.15);
+  outline: none;
+}
+
+/* 날짜 입력 2개를 가로로 정렬 */
+.date-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+.date-field { flex: 1; display: flex; flex-direction: column; }
+.date-field label { margin-bottom: 6px; font-weight: 600; font-size: 14px; }
+
+/* ==== Color picker ==== */
+.color-picker { display: flex; gap: 10px; flex-wrap: wrap; margin: 6px 0 14px; }
+.swatch { --swatch: #ccc; position: relative; display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; cursor: pointer; }
+.swatch input[type="radio"] { appearance: none; -webkit-appearance: none; position: absolute; inset: 0; width: 0; height: 0; opacity: 0; pointer-events: none; }
+.swatch .dot { display: block; width: 24px; height: 24px; box-sizing: border-box; border-radius: 50%; background: var(--swatch); border: 2px solid transparent; box-shadow: 0 1px 3px rgba(0,0,0,.12); transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease; line-height: 0; }
+.swatch:hover .dot { transform: translateY(-1px); box-shadow: 0 3px 8px rgba(0,0,0,.18); }
+.swatch.selected .dot { border-color: #7b2cbf; box-shadow: 0 0 0 3px rgba(123,44,191,.18); }
+.swatch:focus-within .dot { outline: 2px solid #7b2cbf; outline-offset: 2px; }
+
+/* === 일정 모달 버튼 === */
+/* 푸터: 왼쪽(삭제) ↔ 오른쪽(취소/저장) */
+.modal-footer{
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center;
+  padding: 15px 20px;
+  border-top: 1px solid #eee;
+  background: #fff;
+}
+.modal-footer .right-actions{ display: flex; gap: 12px; }
+.modal-footer .left-actions{ display: flex; gap: 12px; }
+
+/* 취소: ghost 스타일 */
+.btn-cancel{
+  background: #f4eeff;
+  color: #8d38ca;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn-cancel:hover{ background: #eee0ff; }
+
+/* 저장: primary 스타일 */
+.btn-save{
+  background: #975bff;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn-save:hover{ background: #9d48ff; }
+
+.btn-delete{
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn-delete:hover{ background: #c0392b; }
+
+/* === react-datepicker 커스텀 === */
+.rdp-popper { z-index: 10000 !important; } /* 겹침 방지 */
+
+.rdp-cal.react-datepicker{
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.15);
+  overflow: hidden;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+/* 헤더/요일 */
+.rdp-cal .react-datepicker__header{
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  padding-top: 10px;
+}
+.rdp-cal .react-datepicker__current-month{ font-weight: 800; font-size: 16px; }
+.rdp-cal .react-datepicker__day-name{ color:#6b7280; font-weight:600; }
+
+/* 날짜 셀 */
+.rdp-cal .react-datepicker__day{
+  border-radius: 8px;
+  line-height: 2.2rem;
+}
+.rdp-cal .react-datepicker__day--selected,
+.rdp-cal .react-datepicker__day--keyboard-selected{
+  background:#975bff;
+  color:#fff;
+}
+.rdp-cal .react-datepicker__day--today{
+  border:1px solid #c7d2fe;
+}
+
+/* 시간 컬럼 */
+.rdp-cal .react-datepicker__time-container{
+  width: 110px;
+  border-left: 1px solid #eee;
+}
+.rdp-cal .react-datepicker__time-list-item{
+  height: 32px;
+  display: flex; align-items: center;
+}
+.rdp-cal .react-datepicker__time-list-item--selected{
+  background: #eef2ff !important;
+  color: #111827 !important;
+  font-weight: 700;
+}
+
+/* 포인터 삼각형 제거(원하면) */
+.rdp-popper .react-datepicker__triangle{ display:none; }
+
+/* ===== react-datepicker 네비게이션 위치 보정 ===== */
+.rdp-cal { --time-col: 120px; } /* 시간열 너비(원하면 110~130px로 조절) */
+
+.rdp-cal .react-datepicker__time-container{
+  width: var(--time-col);
+}
+
+/* 헤더 내 네비게이션 수직 정렬 */
+.rdp-cal .react-datepicker__navigation {
+  top: 14px;              /* 헤더 padding에 맞춰 살짝 내림 */
+}
+
+/* 시간열이 있을 때 오른쪽 화살표 위치 보정 */
+.rdp-cal .react-datepicker__navigation--next--with-time {
+  right: calc(var(--time-col) + 16px);  /* 시간열 너비 + 헤더 여백 */
+}
+
+/* (선택) 좌측 화살표도 살짝 정렬감 맞추기 */
+.rdp-cal .react-datepicker__navigation--previous {
+  left: 16px;
+}

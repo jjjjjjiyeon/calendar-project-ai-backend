@@ -1,0 +1,99 @@
+/* 전체 레이아웃 */
+.calendar-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  height: calc(100vh - 80px);
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: #f9fafb;
+}
+
+/* 오른쪽 메인 캘린더 영역 */
+.calendar-main {
+  padding: 16px;
+  background: #f9fafb;
+}
+
+.rbc-month-view {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+}
+
+/* 툴바 */
+.rbc-toolbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+  gap: 12px;
+}
+
+.rbc-toolbar-label {
+  flex: 1;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  color: #222;
+}
+
+.rbc-btn-group button {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 6px 14px;
+  margin: 0 2px;
+  cursor: pointer;
+  border-radius: 20px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.rbc-btn-group button:hover {
+  background: #f3f0ff;
+  border-color: #673ab7;
+  color: #673ab7;
+}
+
+.rbc-active {
+  background: #673ab7 !important;
+  color: #fff !important;
+  border: 1px solid #673ab7 !important;
+}
+
+/* 날짜 셀 */
+.rbc-day-bg {
+  border: 1px solid #f1f3f5;
+  transition: background 0.2s ease;
+}
+
+.rbc-day-bg:hover {
+  background: #f9f7ff;
+  cursor: pointer;
+}
+
+.rbc-off-range-bg {
+  background: #fafafa;
+}
+
+.rbc-today {
+  background: #ede7f6 !important;
+  font-weight: 600;
+}
+
+/* 이벤트 */
+.rbc-event {
+  border-radius: 8px !important;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.rbc-event:hover {
+  transform: scale(1.02);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* 버튼과 사이드바 간격 */
+}

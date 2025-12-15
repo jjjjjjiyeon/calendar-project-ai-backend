@@ -1,0 +1,123 @@
+/* === AddCalendarModal 전용 (전역 .modal 과 절대 안 겹치게 acm- prefix) === */
+
+.acm-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.45); /* 어두운 반투명 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 9999;
+  box-sizing: border-box;
+}
+
+.acm-dialog {
+  width: 100%;
+  max-width: 520px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* 둥근 모서리 유지 */
+  max-height: 90vh;
+}
+
+.acm-header {
+  padding: 18px 20px;
+  border-bottom: 1px solid #eee;
+}
+.acm-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.acm-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 14px 20px 0 20px;
+}
+.acm-tab {
+  border: 1px solid #e8e5eb;
+  background: #faf9fb;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.acm-tab.is-active {
+  background: #7b2cbf;
+  border-color: #7b2cbf;
+  color: #fff;
+}
+
+.acm-body {
+  padding: 16px 20px 8px 20px;
+  overflow: auto;
+}
+
+.acm-field {
+  margin-top: 14px;
+}
+.acm-field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #333;
+}
+.acm-input,
+.acm-textarea {
+  width: 100%;
+  border: 1px solid #e8e5eb;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 14px;
+  outline: none;
+  background: #fff;
+}
+.acm-input:focus,
+.acm-textarea:focus {
+  border-color: #e8c7fe;
+  box-shadow: 0 0 0 4px rgba(163, 99, 241, 0.15);
+}
+
+.acm-hint {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.acm-footer {
+  padding: 14px 20px;
+  border-top: 1px solid #eee;
+  background: #fafafa;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.acm-btn {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+}
+.acm-btn.ghost {
+  background: #f4eeff;
+  color: #8d38ca;
+}
+.acm-btn.ghost:hover {
+  background: #eee0ff;
+}
+.acm-btn.primary {
+  background: #975bff;
+  color: #fff;
+}
+.acm-btn.primary:hover {
+  background: #9d48ff;
+}

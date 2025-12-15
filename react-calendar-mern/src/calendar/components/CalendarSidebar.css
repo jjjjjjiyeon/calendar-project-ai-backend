@@ -1,0 +1,635 @@
+/* ===== 사이드바 전체 ===== */
+.sidebar {
+  width: 240px;
+  background: #fff;
+  border-right: 1px solid #e5e5e5;
+  padding: 16px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 14px;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 80px); /* Navbar 제외한 높이 */
+  overflow-y: auto; /* ✅ 스크롤 */
+}
+
+/* ===== 상단 버튼 ===== */
+.sidebar-buttons {
+  display: flex;
+  flex-direction: column; /* ✅ 버튼 세로 배치 */
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.sidebar-buttons button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sidebar-buttons .btn-write {
+  background: #9b5cff;
+  color: white;
+}
+.sidebar-buttons .btn-write:hover {
+  background: #8648d8;
+}
+
+.sidebar-buttons .btn-manage {
+  background: #f1f1f1;
+  color: #333;
+}
+.sidebar-buttons .btn-manage:hover {
+  background: #e0e0e0;
+}
+
+/* ===== react-calendar (미니 달력) ===== */
+.react-calendar {
+  width: 100%;
+  border: none;
+  font-family: "Noto Sans KR", sans-serif;
+  line-height: 1.5em;
+  margin-bottom: 20px;
+}
+
+.react-calendar__navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+/* 네비게이션 버튼 (‹, ›) */
+.react-calendar__navigation button {
+  min-width: 24px !important;
+  width: 28px !important;
+  height: 28px !important;
+  padding: 0 !important;
+  margin: 0 2px;
+  border-radius: 4px;
+  background: white;
+  border: none;
+  cursor: pointer;
+}
+.react-calendar__navigation button:disabled {
+  color: #ccc;
+  cursor: default;
+}
+.react-calendar__navigation button:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* 년월 라벨 (예: 2025.09) */
+.react-calendar__navigation__label {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+/* 요일 헤더 */
+.react-calendar__month-view__weekdays {
+  text-align: center;
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 4px;
+}
+.react-calendar__month-view__weekdays__weekday {
+  padding: 4px 0;
+}
+
+/* 날짜 셀 */
+.react-calendar__tile {
+  max-width: initial;
+  padding: 6px 0;
+  text-align: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+/* 오늘 */
+.react-calendar__tile--now {
+  background: #e5e5ff;
+  border-radius: 50%;
+  color: #333;
+  font-weight: bold;
+}
+
+/* 선택된 날짜 */
+.react-calendar__tile--active {
+  background: #bb5cff;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+}
+
+/* hover */
+.react-calendar__tile:hover {
+  background: #f1f1f1;
+  border-radius: 50%;
+}
+
+/* 주말(일요일 빨간색) */
+.react-calendar__month-view__days__day--weekend {
+  color: red;
+}
+
+/* ===== 전체 일정 보기 ===== */
+.all-schedules {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+.all-schedules:hover {
+  background: #f8f9fa;
+}
+
+/* ===== 캘린더 리스트 ===== */
+.calendar-list {
+  margin-top: 20px;
+}
+
+.calendar-section {
+  margin-bottom: 15px;
+}
+
+.calendar-section h4 {
+  font-size: 14px;
+  font-weight: bold;
+  color: #444;
+}
+
+/* ✅ 세로로 나열 */
+.calendar-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.calendar-section li {
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 6px; /* 체크박스와 텍스트 간격 */
+  padding: 4px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.calendar-section li:hover {
+  background: #f8f9fa;
+}
+
+/* 체크박스 */
+.calendar-section input[type="checkbox"] {
+  cursor: pointer;
+}
+
+/* ===== [검색 UI만 개선] ===== */
+.calendar-section input[type="text"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e8e5eb;
+  border-radius: 12px;
+  background: #fff;
+  outline: none;
+  font-size: 14px;
+  transition: box-shadow 0.15s, border-color 0.15s;
+  /* 검색영역과 아래 요소(버튼/리스트) 간격 */
+  margin-bottom: 10px;
+}
+
+.calendar-section input[type="text"]::placeholder {
+  color: #9ca3af;
+}
+
+.calendar-section input[type="text"]:focus {
+  border-color: #e0c7fe;
+  box-shadow: 0 0 0 4px rgba(163, 99, 241, 0.15);
+}
+
+/* 검색 버튼은 텍스트 인풋 바로 뒤에 있을 때만 살짝 스타일 */
+.calendar-section input[type="text"] + button {
+  padding: 8px 12px;
+  border: 1px solid #e8e5eb;
+  border-radius: 10px;
+  background: #f9f9fb;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  margin-left: 6px;        /* 인풋과 버튼 간격 */
+}
+
+.calendar-section input[type="text"] + button:hover {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+}
+
+/* 검색 결과 리스트와 위 요소 간의 간격 */
+.calendar-section input[type="text"] ~ ul {
+  margin-top: 10px;
+}
+
+/* ===== [체크박스 리스트 간격만 확대] ===== */
+/* 캘린더 리스트의 아이템 간 간격/패딩만 살짝 키움 */
+
+.calendar-section li {
+  display: flex;
+  align-items: center;
+  gap: 10px !important;  /* 기존보다 넓게 */
+  padding: 4px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.calendar-section li:hover {
+  background: #f8f9fa;
+}
+
+/* 체크박스 자체 클릭감 조금 개선(지원 브라우저에서 색상 적용) */
+.calendar-section input[type="checkbox"] {
+  width: 13px;
+  height: 13px;
+  accent-color: #8e61ba;
+  cursor: pointer;
+}
+
+/* 🔹 "캘린더" 제목과 검색창 간격 줄이기 */
+.sidebar .calendar-section h4 {
+  margin-bottom: 13px !important;   /* 기본보다 절반 이하로 */
+}
+
+/* 🔹 검색창 위쪽 여백 살짝 추가 */
+.sidebar .calendar-section input[type="text"] {
+  margin-top: 0px !important;
+  margin-bottom: 8px !important;
+}
+
+/* 🔹 체크박스와 달력 이름 간격 확보 */
+.sidebar .calendar-section li label {
+  display: flex !important;
+  align-items: center;
+  gap: 10px !important;             /* 체크박스-텍스트 거리 확실히 */
+  cursor: pointer;
+}
+
+
+.calendar-section > *:first-child + *::before {
+  content: none !important;
+}
+
+/* 항목 좌우 분리 및 호버 */
+.calendar-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 6px;
+  border-radius: 6px;
+}
+.calendar-item:hover { background: #f8f9fa; }
+
+.calendar-item-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* kebab 버튼 */
+.calendar-actions { position: relative; display: flex; align-items: center; }
+.kebab-btn {
+  width: 28px; height: 28px;
+  border: none; border-radius: 6px;
+  background: transparent;
+  font-size: 18px; line-height: 1;
+  cursor: pointer; color: #6b7280;
+}
+.kebab-btn:hover { background: #eef2ff; color: #7b2cbf; }
+
+/* 팝오버 메뉴 */
+.calendar-menu {
+  position: absolute; right: 0; top: 32px;
+  min-width: 140px; padding: 6px;
+  background: #fff; border: 1px solid #e5e7eb; border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+  z-index: 10;
+}
+.calendar-menu .menu-item {
+  display: block; width: 100%;
+  text-align: left; padding: 8px 10px;
+  border: none; background: transparent;
+  border-radius: 8px; font-size: 13px;
+  color: #374151; cursor: pointer;
+}
+.calendar-menu .menu-item:hover { background: #f3f4f6; }
+.calendar-menu .menu-item.danger { color: #e11d48; }
+.calendar-menu .menu-item.danger:hover { background: #fee2e2; }
+
+/* ============== 멤버 펼치기 전용 추가 스타일 (kebab 그대로 유지) ============== */
+
+/* 캘린더 이름을 버튼처럼 */
+.calendar-name-btn {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  font-weight: 400;
+  color: #374151;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 6px;
+}
+.calendar-name-btn:hover { color: #111827; background: #f9fafb; }
+
+/* li 기본 구조는 유지하되, 펼친 경우에만 아래에 패널이 생기도록 */
+.calendar-item {
+  position: relative; /* kebab 메뉴 위치 기준 유지 */
+}
+
+/* 펼침 상태일 때 li 내부에 멤버 패널을 한 줄 아래로 붙임 */
+.calendar-item.is-expanded {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+
+/* 멤버 패널 (본문 아래로 꽉 차게) */
+.members-panel {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #eef2ff;
+  border-radius: 10px;
+  padding: 8px;
+  box-shadow: 0 1px 0 rgba(99,102,241,0.06);
+}
+
+/* 멤버 목록 */
+.members-list {
+  list-style: none;
+  padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.member-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 6px;
+  border: 1px solid #f1f5f9;
+  border-radius: 8px;
+  background: #fff;
+}
+.member-main { display: flex; align-items: center; gap: 8px; }
+
+/* 이니셜 아바타 */
+.member-avatar {
+  width: 28px; height: 28px; border-radius: 50%;
+  display: grid; place-items: center;
+  font-weight: 700; font-size: 12px;
+  background: #e9d5ff; color: #5b21b6; /* 보라 파스텔 */
+}
+
+/* 이름/메일 */
+.member-texts strong { font-weight: 500; color: #111827; }
+.member-texts .muted { color: #6b7280; font-size: 12px; }
+
+/* 역할 뱃지 */
+.role-badge {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid #e7e5eb;
+  color: #433751;
+  background: #faf9fb;
+  text-transform: lowercase;
+}
+.role-badge.owner {
+  background:#f5f3ff; border-color:#ddd6fe; color:#4c1d95;
+}
+.role-badge.member { background:#faf8fc; }
+
+/* 로딩/빈 상태 */
+.members-loading, .members-empty {
+  font-size: 13px;
+  color: #6b7280;
+  padding: 4px 2px;
+}
+
+/* kebab(…) 메뉴가 멤버 패널 위에 항상 뜨도록 */
+.calendar-menu { z-index: 20; }  /* 네 기존 .calendar-menu에 겹쳐 써도 OK */
+
+/* 상단바(타이틀 영역) */
+.sidebar-topbar {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 16px;
+}
+.sidebar-topbar .sidebar-title {
+  margin: 0; font-size: 16px; font-weight: 700; color:#374151;
+  display:flex; align-items:center; gap:8px;
+}
+.sidebar-topbar .btn-add.full { width:100%; padding:10px; border:none; border-radius:10px;
+  background:#f3f4f6; color:#374151; font-weight:600; cursor:pointer; }
+.sidebar-topbar .btn-add.full:hover { background:#e5e7eb; }
+
+.sidebar-topbar.detail {
+  justify-content: space-between;
+}
+.back-btn {
+  border:none; background:#f3f4f6; border-radius:8px; width:30px; height:30px; cursor:pointer;
+}
+.back-btn:hover { background:#e5e7eb; }
+.header-actions { position:relative; }
+
+/* 멤버 패널/목록 (이전 추가분과 동일, 필요시 생략 가능) */
+.members-panel{
+  padding: 0 !important;
+  margin-top: 8px;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.members-list{
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;               /* 카드 간격 */
+}
+.member-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid #ececec;   /* 아주 얇은 테두리 (원하면 제거 가능) */
+  border-radius: 12px;
+  background: #fff;
+}
+
+.member-main{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;                /* 이메일 길어질 때 줄바꿈 가능하도록 */
+}
+
+.member-avatar{
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ede9fe;         /* 라이트 퍼플 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #6d28d9;
+  flex: 0 0 auto;
+}
+
+.member-texts{
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.member-texts strong{
+  font-size: 14px;
+  line-height: 1.2;
+}
+.member-texts .muted{
+  font-size: 12px;
+  color: #706b80;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 역할 배지 균형 */
+.role-badge{
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 12px;
+  line-height: 1;
+  background: #f3f4f6;
+  color: #374151;
+}
+.role-badge.owner{
+  background: #ede9fe;
+  color: #7c3aed;
+}
+
+.role-badge.editor{
+  background: #f2f1ff;
+  color: #17006c;
+}
+
+.members-loading, .members-empty { font-size:13px; color:#6b7280; padding:4px 2px; }
+
+/* kebab가 위로 보이도록 */
+.calendar-menu { z-index: 20; }
+
+/* 디테일 모드일 때 본문과의 간격 조금만 */
+.sidebar-topbar.detail + .calendar-section { margin-top: 8px; }
+
+/* 멤버 행의 kebab 버튼 */
+.member-actions{ position: relative; display: flex; align-items: center; }
+.member-actions .kebab-btn{
+  width: 28px; height: 28px;
+  border: none; border-radius: 6px;
+  background: transparent;
+  font-size: 18px; line-height: 1;
+  cursor: pointer; color: #6b7280;
+}
+.member-actions .kebab-btn:hover{ background: #eef2ff; color: #7b2cbf; }
+
+/* 기존 팝오버 스타일 재사용 */
+.calendar-menu { position: absolute; right: 0; top: 32px; min-width: 160px; padding: 6px; background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,.12); z-index: 30; }
+
+/* 팝오버는 버튼 우측 정렬 */
+.member-actions .calendar-menu{
+  right: 0;
+  top: 32px;
+}
+
+/* 섹션 제목과 리스트의 간격도 살짝 다듬기 */
+.calendar-section h4{
+  margin: 0 0 10px !important;
+  font-weight: 700;             /* 너무 굵지 않게 유지 */
+}
+
+/* ===================== 멤버 검색 (details 모드) ===================== */
+
+/* 래퍼: 간격만 담당 */
+.member-search-wrap {
+  position: relative;
+  margin: 8px 0 10px;
+}
+
+/* 검색 인풋 */
+.member-search {
+  width: 100%;
+  height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #e7e5eb;
+  border-radius: 12px;
+  background: #fff;
+  outline: none;
+  font-size: 14px;
+  color: #111827;
+  transition: border-color .15s ease, box-shadow .15s ease, background-color .15s ease;
+  box-sizing: border-box;
+}
+
+/* placeholder 톤 다운 */
+.member-search::placeholder {
+  color: #9ca3af;
+}
+
+/* 포커스 상태 */
+.member-search:focus {
+  border-color: #e2c7fe;
+  box-shadow: 0 0 0 4px rgba(172, 99, 241, 0.15);
+}
+
+/* 브라우저 기본 X/데코 숨기기 (일관성용) */
+.member-search::-webkit-search-cancel-button,
+.member-search::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+  display: none;
+}
+.member-search::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* (옵션) 다크 모드 대응 */
+@media (prefers-color-scheme: dark) {
+  .member-search {
+    background: #111827;
+    color: #e8e5eb;
+    border-color: #413751;
+  }
+  .member-search::placeholder {
+    color: #9ca3af;
+  }
+  .member-search:focus {
+    border-color: #a163f1;
+    box-shadow: 0 0 0 4px rgba(149, 99, 241, 0.25);
+  }
+}

@@ -1,0 +1,51 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 20px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 15px;
+}
+
+.navbar-left span {
+  font-weight: bold;
+  color: #333;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* 🔹 로그아웃 버튼 스타일 */
+.navbar-right button {
+  background: linear-gradient(135deg, #9b5de5, #7b2cbf);
+  border: none;
+  color: #fff;
+  font-weight: 500;
+  padding: 7px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 6px rgba(155, 93, 229, 0.3);
+}
+
+.navbar-right button:hover {
+  background: linear-gradient(135deg, #a66cff, #8c38ff);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(140, 56, 255, 0.4);
+}
+
+.navbar-right button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(140, 56, 255, 0.3);
+}
