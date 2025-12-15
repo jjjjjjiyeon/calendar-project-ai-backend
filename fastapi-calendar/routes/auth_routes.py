@@ -41,7 +41,7 @@ def register(user: UserCreate):
     }
 
 # JWT 설정
-SECRET_KEY = "your-secret-key"  # 실제 서비스에선 환경변수 사용!
+SECRET_KEY = "키"  # 실제 서비스에선 환경변수 사용!
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
