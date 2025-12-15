@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import google.generativeai as genai
 
-genai.configure(api_key="AIzaSyDkVU6Y3Lv_OXu3rq2M39_R8Z4zOoigq3w")
+genai.configure(api_key="내키")
 
 app = FastAPI()
 
